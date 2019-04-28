@@ -15,7 +15,7 @@ clean:
 	rm -rf bin
 
 $(rubybindir):
-	bundle install
+	bundle install --local
 
 distclean: clean
 	rm -rf vendor/ruby
