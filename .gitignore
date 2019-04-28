@@ -1,2 +1,19 @@
-/bin/swift-spec
-/vendor/ruby
+# autoconf
+**/Makefile
+**/Makefile.in
+aclocal.m4
+autom4te.cache
+config.log
+config.status
+configure
+install-sh
+missing
+
+# configure output
+src/swift-spec
+
+# build products
+bin/swift-spec
+
+# rubygems
+gems/
