@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -eo pipefail
+
+run_tests=true
+xcpretty="@rubybindir@/xcpretty"
+
+for opt; do
+  case $opt in
+    -h|--help|--generate-linuxmain|--list-tests)
+      run_tests=false
+      break
+      ;;
+    *)
+      ;;
+  esac
+done
+
+if $run_tests; then
+  mkdir -p .log
+  swift test "$@" 2>&1 | tee .log/swift-spec.log | "$xcpretty" -t
+else
+  swift test "$@"
+fi
